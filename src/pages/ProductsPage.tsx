@@ -1,11 +1,45 @@
-import React, {useContext} from "react";
+import React, {useContext, useEffect, useState} from "react";
 import { DarkModeContext } from "../DarkModeContext";
+import { getAllProductsAPI, postProductAPI } from "../services/ProductAPIService";
+import { json } from "stream/consumers";
+import { Products } from "../models/Products";
+import { ProductList } from "../components/ProductList";
 
 
 export function ProductsPage(){
+
+    const [products, setProducts] = useState([]); // State to store fetched products
+
+    useEffect(() => {
+        const fetchData = async () => {
+          const response = await getAllProductsAPI();
+          const json = await response.json();
+          setProducts(json);
+        };
+
+        fetchData();
+    }, []); // Empty dependency array ensures fetching only once
+
+    
+    async function getAllProducts(){
+        await getAllProductsAPI()
+        .then(response => {return response.json()})
+        .then(json => {console.log(json)});
+    }
+
+    async function postProduct(){
+        // prepare data for the API call
+        await postProductAPI()
+        .then((response: { json: () => any; }) => {return response.json()})
+        .then((json: any) => {console.log(json)})
+        .catch((error: any) => {console.log(error)})
+    }
     return (
-        <>
-        <h1> Product works!</h1>
-        </>
-    )
+    <>
+    <h1> Product Page</h1>
+    <ProductList></ProductList>
+    <button className="primary-button" onClick={postProduct}>Add a product</button>
+    <button className="secondary-button" onClick={getAllProducts}>Get all products</button>
+    </>
+        )
 }

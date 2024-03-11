@@ -8,21 +8,25 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import { ProductsPage } from './pages/ProductsPage';
 import { PageNotFound } from './pages/PageNotFound';
 import { Navbar } from './components/NavBar';
+import { LandingPage } from './pages/LandingPage';
+import SellerPage from "./pages/SellerPage";
 
 function App() {
 
   return (
     <DarkModeProvider>
     <div className="App">
-    <h1>My React App</h1>
+    <h1>The Product | Seller App</h1>
     <DarkModeToggle/>
       <BrowserRouter>
       <Navbar></Navbar>
-      <Routes>
-            <Route path="messages" element={<ProductsPage />} />
-            <Route path="*" element={<PageNotFound />} />
-          </Routes>
-        </BrowserRouter>
+        <Routes>
+          <Route path='' element={<LandingPage />} />
+          <Route path='/products' element={<ProductsPage />} />
+          <Route path="/seller" element={<SellerPage />} />
+          <Route path='/*' element={<PageNotFound />} />
+        </Routes>
+      </BrowserRouter>
       </div>
     </DarkModeProvider>
   );

@@ -39,16 +39,70 @@ body {
   border: 2px solid #000000;
   }
   
-  body.dark-mode {
-  background-color: #1a1a1a;
-  color: #ffffff;
+  .app-container {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+  }
+
+  .navbar-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    /* Add any necessary styles for the navbar container */
   }
   
-  .button.dark-mode {
-  background-color: #1a1a1a;
-  color: #ffffff;
-  border: 2px solid #ffffff;
+  .content-container {
+    margin-top: 60px; /* Adjust this value based on the height of your navbar */
+    /* Add any necessary styles for the content container */
   }
+
+  ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    color: #b335b5;  
+  }
+
+.navbar {
+  align-items: center;
+  color: #b335b5;  
+}
+
+.navbar-item {
+  display: inline-block;   /* Aligns items vertically within the navbar */
+  margin: 0;
+  padding: 10px;
+  color: inherit;
+  & hover {color: rgb(32, 119, 173); } 
+}
+
+
+.navbar.dark {
+  background-color: #222; /* Dark mode background color */
+  color: #b335b5; /* Dark mode text color */
+}
+
+.primary-button {
+  background-color: blue;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin: 0 5px;
+}
+
+.secondary-button {
+  background-color: green;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin: 0 5px;
+}
 
 @keyframes App-logo-spin {
   from {
