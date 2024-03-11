@@ -1,5 +1,5 @@
 import React, { createContext, useContext, useState } from 'react';
-//import logo from './logo.svg';
+import logo from './logo.svg';
 import './App.css';
 import { DarkModeContext } from './DarkModeContext';
 import { DarkModeProvider } from './DarkModeContext';
