@@ -1,0 +1,21 @@
+body {
+    background-color: #ffffff;
+    color: #000000;
+    }
+    
+    .button {
+    background-color: #ffffff;
+    color: #000000;
+    border: 2px solid #000000;
+    }
+    
+    body.dark-mode {
+    background-color: #1a1a1a;
+    color: #ffffff;
+    }
+    
+    .button.dark-mode {
+    background-color: #1a1a1a;
+    color: #ffffff;
+    border: 2px solid #ffffff;
+    }
