@@ -4,6 +4,7 @@ const apiBaseURL = "http://localhost:9002/"
 
 // prepare data for the API call -- get all products
 export function getAllProductsAPI(){
+    console.log("url: ", apiBaseURL+"product");
     return fetch(apiBaseURL+"product",{
             method:"GET",
             mode:"cors"

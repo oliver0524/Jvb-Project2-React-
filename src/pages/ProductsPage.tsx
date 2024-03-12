@@ -4,12 +4,20 @@ import { getAllProductsAPI, postProductAPI } from "../services/ProductAPIService
 import { json } from "stream/consumers";
 import { Products } from "../models/Products";
 import { ProductList } from "../components/ProductList";
+import { ProductAdd } from "../components/ProductAdd";
 
 
 export function ProductsPage(){
 
-    const [products, setProducts] = useState([]); // State to store fetched products
+    /*
+    const [products, setProducts] = useState([]);    // State to store fetched products
+    const [showForm, setShowForm] = useState(false); // State to control form visibility
 
+    const handleAddProductClick = () => {
+        setShowForm(true);                           // Show the form on button click
+      } */
+
+      /*
     useEffect(() => {
         const fetchData = async () => {
           const response = await getAllProductsAPI();
@@ -19,7 +27,7 @@ export function ProductsPage(){
 
         fetchData();
     }, []); // Empty dependency array ensures fetching only once
-
+*/
     
     async function getAllProducts(){
         await getAllProductsAPI()
@@ -38,8 +46,8 @@ export function ProductsPage(){
     <>
     <h1> Product Page</h1>
     <ProductList></ProductList>
-    <button className="primary-button" onClick={postProduct}>Add a product</button>
-    <button className="secondary-button" onClick={getAllProducts}>Get all products</button>
+    <button className="primary-button" onClick={ProductAdd}>Add a product</button>
+    {/*<button className="secondary-button" onClick={getAllProducts}>Get all products</button>*/}
     </>
         )
 }

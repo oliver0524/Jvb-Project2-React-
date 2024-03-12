@@ -7,12 +7,14 @@ interface propsInterface {
 }
 
 export function SingleProduct(props:propsInterface){
+    console.log('SingleProduct props:', props.data);
 
-    return (<>
-    <h1> Product Details Page</h1>
-    <h2>{props.data.product_name}</h2>
-    <p>{props.data.product_name}</p>
-    <p>{props.data.product_price}</p>
-    <p style={{fontStyle:"italic"}}>{props.data.seller_name}</p>
-    </>)
+    return (
+    <>
+    <h2>{props.data.name}</h2>
+    <p>{props.data.id}</p>
+    <p>{props.data.price}</p>
+    <p style={{fontStyle:"italic"}}>{props.data.sellername}</p>
+    </>
+    )
 }

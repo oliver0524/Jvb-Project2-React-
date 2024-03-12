@@ -18,6 +18,9 @@ const SellerForm: React.FC<SellerFormProps> = ({ onSellerCreated }) => {
 
     createSeller(sellerData)
       .then((response) => {
+        if (response.status == 400) {
+          alert("Error Occured While Adding Seller");
+        }
         return response;
       })
       .then((data) => {
@@ -47,7 +50,7 @@ const SellerForm: React.FC<SellerFormProps> = ({ onSellerCreated }) => {
             />
           </div>
           <button type="submit" className="button">
-            Create
+            Add
           </button>
         </form>
       </div>
