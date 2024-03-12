@@ -13,7 +13,7 @@ export function Navbar(){
             <ul> 
                 <li className="navbar-item"><Link to=''>Landing Page</Link></li>
                 <li className="navbar-item"><Link to='/products'>Product Page</Link></li>
-                <li className="navbar-item"><Link to='/sellers'>Seller Page</Link></li>
+                <li className="navbar-item"><Link to='/seller'>Seller Page</Link></li>
             </ul>
          </nav>
 

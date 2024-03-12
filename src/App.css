@@ -59,6 +59,7 @@ body {
   }
 
   ul {
+    display: inline-block;   /* Aligns items vertically */
     list-style-type: none;
     margin: 0;
     padding: 0;
@@ -71,7 +72,7 @@ body {
 }
 
 .navbar-item {
-  display: inline-block;   /* Aligns items vertically within the navbar */
+  display: inline-block;   /* Aligns items vertically */
   margin: 0;
   padding: 10px;
   color: inherit;
