@@ -18,13 +18,15 @@ export async function postProductAPI(){
       method: "POST",
       mode: "cors",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ name: "iphone15", price: 1000, sellername: "Apple" }),
+      body: JSON.stringify({ name: "iphone13", price: 1000, sellername: "Apple" }),
     });
 
+    // Handle non-200 status codes
     if (!response.ok) {
       const errorData = await response.json();
-      console.log("post response: ", errorData);
-      throw new Error('Failed to add a product'); //Server-provided message or default
+      console.log("add error: ", errorData);
+      console.error("Error adding product:", errorData);
+      throw new Error(errorData.message || 'Failed to delete product'); // server-provided message or default
     }
   
     const data = await response.json();

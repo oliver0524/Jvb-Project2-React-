@@ -14,9 +14,9 @@ export function SingleProduct(props:propsInterface){
     return (
     <>
     <h3 className="productList">{props.data.name}</h3>
-    <p className="productList">{props.data.id}</p>
-    <p className="productList">{props.data.price}</p>
-    <p className="productList">{props.data.sellername}</p>
+    {/*<p className="productList">{props.data.id}</p>*/}
+    <p className="productList">${props.data.price}</p>
+    <p className="productList">by {props.data.sellername}</p>
     </>
     )
 }
