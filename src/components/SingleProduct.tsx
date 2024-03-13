@@ -2,19 +2,21 @@ import React, {useContext} from "react";
 import { DarkModeContext } from "../DarkModeContext";
 import { Products } from "../models/Products";
 
+//Define an interface called propsInterface to specify the expected shape of the props object
+//The data prop is of type Products
 interface propsInterface {
     data:Products
 }
 
 export function SingleProduct(props:propsInterface){
-    console.log('SingleProduct props:', props.data);
+    console.log('SingleProduct props:', props.data);   //log the props.data object to the console
 
     return (
     <>
-    <h2>{props.data.name}</h2>
-    <p>{props.data.id}</p>
-    <p>{props.data.price}</p>
-    <p style={{fontStyle:"italic"}}>{props.data.sellername}</p>
+    <h3 className="productList">{props.data.name}</h3>
+    <p className="productList">{props.data.id}</p>
+    <p className="productList">{props.data.price}</p>
+    <p className="productList">{props.data.sellername}</p>
     </>
     )
 }

@@ -105,6 +105,41 @@ body {
   margin: 0 5px;
 }
 
+.productItem {
+  display: flex;
+  flex-wrap: nowrap; /* Ensure items don't wrap onto multiple lines */
+  list-style: none; /* Remove default bullets */
+  padding: 3px; /* Remove default padding */
+  justify-content: space-between; /* Align content horizontally */
+  align-items: center; /* Vertically align content within items */
+  gap: 10px; /* Spacing between list items */
+  border-bottom: 1px solid #ddd;
+}
+
+.productList button {
+  list-style: none;
+  margin-right: 10px; /* Add margin between buttons */
+}
+
+.table-header {
+  display: flex;
+  flex-wrap: nowrap; /* Ensure items don't wrap onto multiple lines */
+  font-weight: bold;
+  align-items: center;
+  justify-content: space-between; /* Align content horizontally */
+  align-items: center; /* Vertically align content within items */
+  gap: 10px; /* Spacing between list items */
+  padding: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.header {
+  flex-wrap: nowrap; /* Ensure items don't wrap onto multiple lines */
+  display: grid;
+  grid-template-columns: 1fr auto; /* Define grid columns */
+  align-items: center;            /* Align items vertically */
+}
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);

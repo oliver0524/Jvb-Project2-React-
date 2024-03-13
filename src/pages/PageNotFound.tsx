@@ -1,4 +1,5 @@
-import React, { useContext } from "react";
+import React, {useContext, useEffect, useState} from "react";
+import { DarkModeContext } from "../DarkModeContext";
 
 export function PageNotFound() {
   return (

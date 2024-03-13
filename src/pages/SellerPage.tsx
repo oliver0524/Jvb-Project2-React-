@@ -33,6 +33,7 @@ const SellerPage = () => {
 
   return (
     <div>
+      <h1> Seller Page</h1>
       
       <SellerForm onSellerCreated={fetchSellers} />
       {sellers.length == 0 ? (

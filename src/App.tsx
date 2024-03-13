@@ -15,7 +15,7 @@ function App() {
   return (
     <DarkModeProvider>
       <div className="App">
-        <h1>The Product | Seller App</h1>
+        {/*<h1>The Product | Seller App</h1>*/}
         <DarkModeToggle />
         <BrowserRouter>
           <Navbar></Navbar>
