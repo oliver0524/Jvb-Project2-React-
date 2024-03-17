@@ -1,0 +1,152 @@
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+body {
+  background-color: #ffffff;
+  color: #000000;
+  }
+  
+  .button {
+  background-color: #ffffff;
+  color: #000000;
+  border: 2px solid #000000;
+  }
+  
+  .app-container {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+  }
+
+  .navbar-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    /* Add any necessary styles for the navbar container */
+  }
+  
+  .content-container {
+    margin-top: 60px; /* Adjust this value based on the height of your navbar */
+    /* Add any necessary styles for the content container */
+  }
+
+  ul {
+    display: inline-block;   /* Aligns items vertically */
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    color: #b335b5;  
+  }
+
+.navbar {
+  align-items: center;
+  color: #b335b5;  
+}
+
+.navbar-item {
+  display: inline-block;   /* Aligns items vertically */
+  margin: 0;
+  padding: 10px;
+  color: inherit;
+  & hover {color: rgb(32, 119, 173); } 
+}
+
+
+.navbar.dark {
+  background-color: #222; /* Dark mode background color */
+  color: #b335b5; /* Dark mode text color */
+}
+
+.primary-button {
+  background-color: blue;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin: 0 5px;
+}
+
+.secondary-button {
+  background-color: green;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin: 0 5px;
+}
+
+.productItem {
+  display: flex;
+  flex-wrap: nowrap; /* Ensure items don't wrap onto multiple lines */
+  list-style: none; /* Remove default bullets */
+  padding: 3px; /* Remove default padding */
+  justify-content: space-between; /* Align content horizontally */
+  align-items: center; /* Vertically align content within items */
+  gap: 10px; /* Spacing between list items */
+  border-bottom: 1px solid #ddd;
+}
+
+.productList button {
+  list-style: none;
+  margin-right: 10px; /* Add margin between buttons */
+}
+
+.table-header {
+  display: flex;
+  flex-wrap: nowrap; /* Ensure items don't wrap onto multiple lines */
+  font-weight: bold;
+  align-items: center;
+  justify-content: space-between; /* Align content horizontally */
+  align-items: center; /* Vertically align content within items */
+  gap: 10px; /* Spacing between list items */
+  padding: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.header {
+  flex-wrap: nowrap; /* Ensure items don't wrap onto multiple lines */
+  display: grid;
+  grid-template-columns: 1fr auto; /* Define grid columns */
+  align-items: center;            /* Align items vertically */
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@import url("DarkMode.css");
