@@ -38,33 +38,28 @@ export function ProductAdd({ product, setProduct}: ProductAddProps): React.JSX.E
     if (product.id == undefined) {
       try {                                                         // If product ID does not exist, add a new product
         const response = await postProductAPI(product);             // Call the postProductAPI function
-          console.log("product add update: ", response);
+          console.log("product add : ", response);
           toast.success(`Product "${response.name}" added successfully`);
           setProduct({ name: "", price: 0, sellername: "" });       // Reset the product state
           setError("");   
-      } catch (error) {
-        toast.error("Failed to add product");
+      } catch (error: any) {
+        const errorMessage = error.message || "Failed to add product"; //Msg from backedn or Default message
+        toast.error(errorMessage);
         resetForm();
       }   
     } else {
-      try {                                                       // If product ID exists, update the product
-        const response = await updateProductAPI(product);         // Call the updateProductAPI function
-        console.log(response);
-        if (response.status == 400) {
-          toast.error(`Product "${product?.name}" is not updated`);    // Display an error toast
-          console.log("product update error: ", response);    
-        } else {
-          toast.success(`Product "${product?.name}" updated successfully`);
-          console.log("product update: ", response);
-          setProduct({ name: "", price: 0, sellername: "" });     // Reset the product state
-          setError("");   
-        }
-      } catch (error) {
-        setError("Failed to update product");
-      }
-      //return;   
-  }
-};
+  try {                                                           // If product exists, update product
+    const response = await updateProductAPI(product);             // Call the put API function
+      console.log("product update: ", response);
+      toast.success(`Product "${response.name}" updated successfully`);
+      setProduct({ name: "", price: 0, sellername: "" });        // Reset the product state
+      setError("");   
+  } catch (error: any) {
+    const errorMessage = error.message || "Failed to update product"; //Msg from backedn or Default message
+    toast.error(errorMessage);
+  }   
+}
+  };
 
   return (
     <>
