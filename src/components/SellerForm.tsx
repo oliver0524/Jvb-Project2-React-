@@ -20,7 +20,8 @@ const SellerForm: React.FC<SellerFormProps> = ({ onSellerCreated }) => {
 
     createSeller(sellerData)                                            // Calls the createSeller API function.
       .then((response) => {
-        if (response.status == 400) {
+        console.log("seller response: ", response)
+        if (!response.ok) {
           toast.error("Error Occured While Adding Seller");
         }
         return response;

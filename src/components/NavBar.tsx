@@ -13,7 +13,7 @@ export function Navbar() {
           <Link
             to=""
             style={{
-              color: contextValue?.isDarkMode ? "white" : "black",   // Set link color based on dark mode
+              color: contextValue?.isDarkMode ? "#b335b5" : "blue",   // Set link color based on dark mode
             }}
           >
             Landing Page
@@ -23,7 +23,7 @@ export function Navbar() {
           <Link
             to="/products"
             style={{
-              color: contextValue?.isDarkMode ? "white" : "black",   // Set link color based on dark mode
+              color: contextValue?.isDarkMode ? "#b335b5" : "blue",   // Set link color based on dark mode
             }}
           >
             Product Page
@@ -33,7 +33,7 @@ export function Navbar() {
           <Link
             to="/seller"
             style={{
-              color: contextValue?.isDarkMode ? "white" : "black",    // Set link color based on dark mode
+              color: contextValue?.isDarkMode ? "#b335b5" : "blue",    // Set link color based on dark mode
             }}
           >
             Seller Page

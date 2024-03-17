@@ -13,10 +13,10 @@ const SellerCard: React.FC<SellerCardProps> = ({ seller }) => {
   return (
     <div
       className="seller_card"
-      style={{
-        backgroundColor: "white",
-        color: "black",
-      }}
+      //style={{
+      //  backgroundColor: "white",
+      //  color: "black",
+      //}}
     >
       <h2>{seller.sellername}</h2>
     </div>

@@ -12,6 +12,8 @@ export function getAllProductsAPI() {
 
 // Add a new product via API
 export async function postProductAPI(product: Products) {
+  try {
+  console.log("post API: ", apiBaseURL + "product");
   const response = await fetch(apiBaseURL + "product", {
     method: "POST",
     mode: "cors",
@@ -19,15 +21,18 @@ export async function postProductAPI(product: Products) {
     body: JSON.stringify(product),                      // Convert product object to JSON string
   });
 
+  const responseData = await response.json();     
+
   if (!response.ok) {                                   
-    const errorData = await response.json();            // Parse error response
-    console.log("post response: ", errorData);          // Log server error details (for debugging)  
+    console.log("post error: ", response);             // Log server error details (for debugging)  
     throw new Error("Failed to add a product");         // Custom error message
   }
-
-  const data = await response.json();
-  return data;
-}
+  console.log("post resp: ", responseData);
+  return responseData;
+  } catch (error) {
+    console.error("Error occurred:", error);
+  throw error;                                          // Rethrow the error to the calling code
+}}
 
 // Delete a product via API
 export const deleteProductAPI = async (productId: any) => {
@@ -40,6 +45,7 @@ export const deleteProductAPI = async (productId: any) => {
 
 // Update an existing product via API
 export const updateProductAPI = async (product: Products) => {
+  console.log("update api: ", `${apiBaseURL}product/${product.id}`);
   return await fetch(`${apiBaseURL}product/${product.id}`, {
     method: "PUT",
     mode: "cors",

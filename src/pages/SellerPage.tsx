@@ -34,65 +34,26 @@ const SellerPage = () => {
 
   //Conditional Rendering for the "sellers.length == 0" condition 
   return (
-    <div>
-      <h1> Seller Page</h1>
-      <div
-        style={{
-          display: "flex",
-          justifyContent: "space-between",                      // Arrange components with space between them
-        }}
-      >
-        <div
-          style={{
-            flex: 1,
-            display: "flex",
-            flexDirection: "column",
-            justifyContent: "center",
-            alignContent: "center",
-          }}
-        >
-          <SellerForm onSellerCreated={fetchSellers} />         {/* Render the SellerForm component */}
-        </div>
-        <div
-          style={{
-            flex: 1,
-            display: "flex",
-            flexDirection: "column",
-            justifyContent: "center",
-            alignContent: "center",
-          }}
-        >
-          {sellers.length == 0 ? (
-            <div
-              style={{
-                display: "flex",
-                flexDirection: "column",
-                flexWrap: "wrap",
-                width: "100%",
-                justifyContent: "center",
-                alignItems: "center",
-              }}
-            >
-              <h6>No sellers</h6>                               {/* Display a message if no sellers exist */}
-            </div>
-          ) : (
-            <div
-              style={{
-                display: "flex",
-                flexDirection: "column",
-                flexWrap: "wrap",
-                width: "100%",
-                justifyContent: "center",
-                alignItems: "center",
-              }}
-            >
-              <h1>Sellers</h1>
-              {sellers.map((seller) => (
-                <SellerCard key={seller.sellername} seller={seller} />
-              ))}
-            </div>
-          )}
-        </div>
+    <div style={{ display: "flex", flexDirection: "column", height: "100vh" }}>
+      <h1 style={{ textAlign: "center"}}>Seller Page</h1>
+      <div style={{ position: "sticky", top: 0, zIndex: 1 }}>
+        <SellerForm onSellerCreated={fetchSellers} />
+      </div>
+      <div style={{ flexGrow: 1, overflowY: "auto", padding: "20px" }}>
+        {sellers.length === 0 ? (
+          <div style={{ display: "flex", justifyContent: "center", alignItems: "center", height: "100%" }}>
+            <h6>No sellers to display</h6>
+          </div>
+        ) : (
+          <div style={{ display: "flex", flexDirection: "column", alignItems: "center" }}>
+            <h1 style={{textAlign: "center" }}>Sellers</h1>
+            <div style={{ display: "flex", flexWrap: "wrap", justifyContent: "center" }}>
+            {sellers.map((seller) => (
+              <SellerCard key={seller.sellername} seller={seller} />
+            ))}
+          </div>
+          </div>
+        )}
       </div>
     </div>
   );

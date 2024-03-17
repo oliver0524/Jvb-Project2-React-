@@ -86,7 +86,7 @@ body {
 }
 
 .primary-button {
-  background-color: blue;
+  background-color: rgba(0, 0, 255, 0.998);
   color: white;
   padding: 10px 20px;
   border: none;

@@ -10,6 +10,7 @@ import {
 } from "../services/ProductAPIService";                   // Import API service functions
 import { Products } from "../models/Products";            // Import the Products model
 import { SingleProduct } from "./SingleProduct";          // Import the SingleProduct component
+import ProductAdd from './ProductAdd';
 
 interface ProductProps {
   product: Products;
@@ -22,20 +23,21 @@ export function ProductList({ product, setProduct }: ProductProps) {
   const [change, setChange] = useState(false);                      // Initialize change state (used for triggering updates)
   const [hide, setHide] = useState(false);                          // Initialize hide state
 
+  //The useEffect hook fetches products when the component mounts and whenever the change state toggles.
   useEffect(() => {
     const fetchProducts = async () => {
       try {
         const response = await getAllProductsAPI();                 // Await the API response
-        const data = await response.text();                         // Convert response to text
-        const parsedData = JSONbig.parse(data);                     // Parse JSON data using JSONbig library
-        setProducts(parsedData);                                    // Update products state
+        const data = await response.json();                         // Convert response to text
+        //const parsedData = JSONbig.parse(data);                   // Parse JSON data using JSONbig library
+        setProducts(data);                                          // Update products state
       } catch (error) {
         toast.error("Error fetching products:\n" + error);
       }
     };
   
     fetchProducts();
-  }, []);
+  }, [change, product]);
 
   async function handleDelete(product: Products | undefined) {
     try {
@@ -48,46 +50,35 @@ export function ProductList({ product, setProduct }: ProductProps) {
     } 
   }
 
-  
-  //handleUpdate update an item based on product.id
+   //handleUpdate sets product and toggles change
   function handleUpdate(product: Products) {
     try {
-      setProduct(product);                                // Set the product state with the selected product
-      setChange(!change);                                 // Toggle the 'change' state to trigger re-fetching products
-      toast.success(`Product "${product?.name}" updated successfully`);
+      setProduct(product);
+      setChange(!change);
     } catch (error) {
       setErrorMessage((error as Error).message);
-      toast.warn(`Product "${product?.name}" is not updated`);
     }
   }
-
 
   return (
     <div>
       {products.length > 0 ? (
-        <div>
+        <div className="product-list-container">
           <div
             className="productList"
-            style={{ fontWeight: "bold", padding: 10, fontSize: "40px" }}
+            style={{ fontWeight: "bold", padding: 10, fontSize: "30px",  }}
           >
-            Products
+            <i>List of Products</i>
           </div>
           <button
-            style={{
-              maxWidth: "140px",
-              backgroundColor: hide ? "red" : "green",
-            }}
+            style={{ maxWidth: "140px",backgroundColor: hide ? "red" : "green",}}
             className="button"
-            onClick={() => setHide(!hide)}
+            onClick={() => {setHide(!hide);setProduct({ name: "", price: 0, sellername: "" })}}
           >
-            {hide ? "Hide" : "Show"} Action
+            {hide ? "Hide" : "Show"} Actions
           </button>
           <ul
-            style={{
-              display: "flex",
-              flexDirection: "row",
-              flexWrap: "wrap",
-            }}
+            style={{display: "flex",flexDirection: "row",flexWrap: "wrap",}}
             className="productList"
           >
             {products.map((product, index) => (             
@@ -100,7 +91,7 @@ export function ProductList({ product, setProduct }: ProductProps) {
               ></SingleProduct>
             ))}
           </ul>
-          <ToastContainer />
+          <ToastContainer />       
         </div>
       ) : (
         <p>No products to display</p>

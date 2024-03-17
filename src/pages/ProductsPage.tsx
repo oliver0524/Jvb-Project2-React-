@@ -1,6 +1,6 @@
 import React, { useContext, useEffect, useState } from "react";
 import { DarkModeContext } from "../DarkModeContext";
-import { ToastContainer} from "react-toastify";
+import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css"; // Import styles
 import {
   getAllProductsAPI,
@@ -24,33 +24,19 @@ export function ProductsPage() {
   return (
     <>
       <h1> Product Page</h1>
-      <div
-        style={{
-          display: "flex",
-          justifyContent: "space-between",            // Arrange components with space between them
-        }}
-      >
-        <div
-          style={{
-            flex: 1,
-            display: "flex",
-            flexDirection: "column",
-            justifyContent: "center",
-            alignContent: "center",
-          }}
-        >
-          <ProductAdd product={product} setProduct={setProduct} />  {/* Render the ProductAdd component */}
+      <div style={{ display: "flex", height: "100vh" }}>
+      <div style={{ width: "25%", zIndex: 1, padding: "20px" }}> {/* Define fixed width for ProductAdd */}
+          <ProductAdd   
+            product={product}
+            setProduct={setProduct} 
+            />
         </div>
         <div
-          style={{
-            flex: 1,
-            display: "flex",
-            flexDirection: "column",
-            justifyContent: "center",
-            alignContent: "center",
-          }}
-        >
-          <ProductList product={product} setProduct={setProduct} /> {/* Render the ProductList component */}
+          style={{ flex: "0 0 1300px", overflowY: "auto" }}>     {/* Allow scrolling for long product lists */}
+          <ProductList
+          product={product}
+          setProduct={setProduct}
+        />
         </div>
       </div>
     </>

@@ -19,35 +19,32 @@ export function SingleProduct(props: propsInterface) {
       <div
         className="container"
         style={{
-          width: "650px",
+          width: "250px",
           display: "flex",
           flexDirection: "column",
           alignItems: "flex-start",
-          color: "black",
-          backgroundColor: "white",
+          color: "white",
+          backgroundColor: "#5353b0",
+          margin: "5px 10px",
         }}
       >
         <h3 className="">{props.data.name}</h3>
         <p className="">Price: {props.data.price}</p>
         <p className="">Seller: {props.data.sellername}</p>
+        <p className="" style={{fontSize: "12px"}}>ID: {props.data.id}</p>
         {props.hide ? (                                       
           <div
             className=""
-            style={{
-              display: "flex",
-              margin: "10px 0",
-            }}
+            style={{display: "flex",margin: "10px 0",}}
           >
-            <button
+             <button
               className="button"
               onClick={() => props.handleUpdate(props.data)}   // Call handleUpdate when the button is clicked
             >
               Update
             </button>
             <button
-              style={{
-                backgroundColor: "red",
-              }}
+              style={{backgroundColor: "red",}}
               className="button"
               onClick={() => props.handleDelete(props.data)}   // Call handleDelete when the button is clicked
             >
